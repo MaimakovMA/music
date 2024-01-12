@@ -486,7 +486,7 @@ function PlayList () {
                       <svg className="track__time-svg" alt="time">
                         <use xlinkHref="img/icon/sprite.svg#icon-like" />
                       </svg>
-                      <span className="track__time-text" />
+                      <span className="track__time-text">3:36</span>
                     </div>
                   </div>
                 </div>
