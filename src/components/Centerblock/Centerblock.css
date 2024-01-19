@@ -185,3 +185,12 @@
     width: 60px;
     text-align: end;
   }
+
+
+.wrapper-filter {
+  position: relative;
+}
+
+.wrapper-filter:not(:last-child) {
+  margin-right: 10px;
+}
