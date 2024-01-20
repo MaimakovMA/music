@@ -1,8 +1,23 @@
 import './Centerblock.css'
+import { useState } from 'react';
 import PlayList from '../PlayList/PlayList';
+import AuthorList from '../SearchBy/AuthorList';
+import YearList from '../SearchBy/YearList';
+import GenreList from '../SearchBy/GenreList';
+
 
 
 function centerBlock () {
+  const [filterActive, setFilterActive] = useState(null)
+  const toggleFilter = (nameFilter) => {
+    if (filterActive===nameFilter) {
+      setFilterActive(null)
+      return
+    }
+    setFilterActive(nameFilter)
+
+  }
+
     return (
         <div className="main__centerblock centerblock">
         <div className="centerblock__search search">
@@ -19,13 +34,24 @@ function centerBlock () {
         <h2 className="centerblock__h2">Треки</h2>
         <div className="centerblock__filter filter">
           <div className="filter__title">Искать по:</div>
-          <div className="filter__button button-author _btn-text">
-            исполнителю
-          </div>
-          <div className="filter__button button-year _btn-text">
-            году выпуска
-          </div>
-          <div className="filter__button button-genre _btn-text">жанру</div>
+          <div className="wrapper-filter">
+            <div className="filter__button button-author _btn-text" onClick={() => toggleFilter("author")}>
+              исполнителю
+            </div>
+            {filterActive==='author' && <AuthorList/>}
+          </div> 
+          <div className="wrapper-filter">
+            <div className="filter__button button-year _btn-text" onClick={() => toggleFilter("year")}>
+              году выпуска
+            </div>
+            {filterActive==='year' && <YearList/>}
+          </div>        
+          <div className="wrapper-filter">
+            <div className="filter__button button-genre _btn-text" onClick={() => toggleFilter("genre")}>
+              жанру
+            </div>
+            {filterActive==='genre' && <GenreList/>}             
+          </div>               
         </div>
         <div className="centerblock__content">
           <div className="content__title playlist-title">

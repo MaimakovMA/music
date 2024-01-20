@@ -1,7 +1,45 @@
+import Skeleton from 'react-loading-skeleton'
 import './Sidebar.css'
+import { useEffect, useState } from 'react'
 
 
 function sidebar () {
+  const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 3000)
+    }, [])
+
+    if(isLoading) {
+      
+      return (
+        <div className="main__sidebar sidebar">
+            <div className="sidebar__personal">
+              <p className="sidebar__personal-name">Sergey.Ivanov</p>
+              <div className="sidebar__icon">
+                <svg alt="logout">
+                  <use xlinkHref="img/icon/sprite.svg#logout"> </use>
+                </svg>
+              </div>
+            </div>
+            <div className="sidebar__block">
+              <div className="sidebar__list">
+                <div className="sidebar__item">
+                  <Skeleton
+                    width={250}
+                    height={150}
+                    count={3}
+                    baseColor="#202020"
+                    highlightColor="#444"
+                  />
+                </div>
+              </div>
+            </div>
+        </div>
+      )
+    }
     return (
         <div className="main__sidebar sidebar">
             <div className="sidebar__personal">
