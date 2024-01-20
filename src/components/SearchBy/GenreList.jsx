@@ -8,6 +8,7 @@ function GenreList () {
             <li className="popup-list__item">Поп-музыка</li>
             <li className="popup-list__item">Техно</li>
             <li className="popup-list__item">Инди</li>
+            <li className="popup-list__item">Зарубежная</li>
         </ul>
     )
 }
