@@ -1,5 +1,5 @@
 import Skeleton from 'react-loading-skeleton'
-import './Sidebar.css'
+import * as S from './Sidebar.styles'
 import { useEffect, useState } from 'react'
 
 
@@ -15,18 +15,18 @@ function sidebar () {
     if(isLoading) {
       
       return (
-        <div className="main__sidebar sidebar">
-            <div className="sidebar__personal">
-              <p className="sidebar__personal-name">Sergey.Ivanov</p>
-              <div className="sidebar__icon">
+        <S.MainSidebar>
+            <S.SidebarPersonal>
+              <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
+              <S.SidebarIcon>
                 <svg alt="logout">
                   <use xlinkHref="img/icon/sprite.svg#logout"> </use>
                 </svg>
-              </div>
-            </div>
-            <div className="sidebar__block">
-              <div className="sidebar__list">
-                <div className="sidebar__item">
+              </S.SidebarIcon>
+            </S.SidebarPersonal>
+            <S.SidebarBlock>
+              <S.SidebarList>
+                <S.SidebarItem>
                   <Skeleton
                     width={250}
                     height={150}
@@ -34,54 +34,51 @@ function sidebar () {
                     baseColor="#202020"
                     highlightColor="#444"
                   />
-                </div>
-              </div>
-            </div>
-        </div>
+                </S.SidebarItem>
+              </S.SidebarList>
+            </S.SidebarBlock>
+        </S.MainSidebar>
       )
     }
     return (
-        <div className="main__sidebar sidebar">
-            <div className="sidebar__personal">
-              <p className="sidebar__personal-name">Sergey.Ivanov</p>
-              <div className="sidebar__icon">
+        <S.MainSidebar>
+            <S.SidebarPersonal>
+              <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
+              <S.SidebarIcon>
                 <svg alt="logout">
                   <use xlinkHref="img/icon/sprite.svg#logout"> </use>
                 </svg>
-              </div>
-            </div>
-            <div className="sidebar__block">
-              <div className="sidebar__list">
-                <div className="sidebar__item">
-                  <a className="sidebar__link" href="http://">
-                    <img
-                      className="sidebar__img"
+              </S.SidebarIcon>
+            </S.SidebarPersonal>
+            <S.SidebarBlock>
+              <S.SidebarList>
+                <S.SidebarItem>
+                  <S.SidebarLink href="http://">
+                    <S.SidebarImg
                       src="img/playlist01.png"
                       alt="day's playlist"
                     />
-                  </a>
-                </div>
-                <div className="sidebar__item">
-                  <a className="sidebar__link" href="http://">
-                    <img
-                      className="sidebar__img"
+                  </S.SidebarLink>
+                </S.SidebarItem>
+                <S.SidebarItem>
+                  <S.SidebarLink href="http://">
+                    <S.SidebarImg
                       src="img/playlist02.png"
                       alt="day's playlist"
                     />
-                  </a>
-                </div>
-                <div className="sidebar__item">
-                  <a className="sidebar__link" href="http://">
-                    <img
-                      className="sidebar__img"
+                  </S.SidebarLink>
+                </S.SidebarItem>
+                <S.SidebarItem>
+                  <S.SidebarLink href="http://">
+                    <S.SidebarImg
                       src="img/playlist03.png"
                       alt="day's playlist"
                     />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </S.SidebarLink>
+                </S.SidebarItem>
+              </S.SidebarList>
+            </S.SidebarBlock>
+          </S.MainSidebar>
     )
 }
 

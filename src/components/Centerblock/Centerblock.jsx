@@ -1,9 +1,9 @@
-import './Centerblock.css'
 import { useState } from 'react';
 import PlayList from '../PlayList/PlayList';
 import AuthorList from '../SearchBy/AuthorList';
 import YearList from '../SearchBy/YearList';
 import GenreList from '../SearchBy/GenreList';
+import * as S from './Centerblock.styles'
 
 
 
@@ -19,54 +19,54 @@ function centerBlock () {
   }
 
     return (
-        <div className="main__centerblock centerblock">
-        <div className="centerblock__search search">
-          <svg className="search__svg">
+      <S.MainCenterBlock>
+        <S.CenterblockSearch>
+          <S.SearchSvg>
             <use xlinkHref="img/icon/sprite.svg#icon-search" />
-          </svg>
-          <input
+          </S.SearchSvg>
+          <S.SearchText
             className="search__text"
             type="search"
             placeholder="Поиск"
             name="search"
           />
-        </div>
-        <h2 className="centerblock__h2">Треки</h2>
-        <div className="centerblock__filter filter">
-          <div className="filter__title">Искать по:</div>
-          <div className="wrapper-filter">
-            <div className="filter__button button-author _btn-text" onClick={() => toggleFilter("author")}>
+        </S.CenterblockSearch>
+        <S.CenterblockH2>Треки</S.CenterblockH2>
+        <S.CenterblockFilter>
+          <S.FilterTitle>Искать по:</S.FilterTitle>
+          <S.WrapperFilter>
+            <S.FilterButton onClick={() => toggleFilter("author")}>
               исполнителю
-            </div>
+            </S.FilterButton>
             {filterActive==='author' && <AuthorList/>}
-          </div> 
-          <div className="wrapper-filter">
-            <div className="filter__button button-year _btn-text" onClick={() => toggleFilter("year")}>
+          </S.WrapperFilter> 
+          <S.WrapperFilter>
+            <S.FilterButton onClick={() => toggleFilter("year")}>
               году выпуска
-            </div>
+            </S.FilterButton>
             {filterActive==='year' && <YearList/>}
-          </div>        
-          <div className="wrapper-filter">
-            <div className="filter__button button-genre _btn-text" onClick={() => toggleFilter("genre")}>
+          </S.WrapperFilter>        
+          <S.WrapperFilter>
+            <S.FilterButton onClick={() => toggleFilter("genre")}>
               жанру
-            </div>
+            </S.FilterButton>
             {filterActive==='genre' && <GenreList/>}             
-          </div>               
-        </div>
-        <div className="centerblock__content">
-          <div className="content__title playlist-title">
-            <div className="playlist-title__col col01">Трек</div>
-            <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-            <div className="playlist-title__col col03">АЛЬБОМ</div>
-            <div className="playlist-title__col col04">
-              <svg className="playlist-title__svg" alt="time">
+          </S.WrapperFilter>               
+        </S.CenterblockFilter>
+        <S.CenterblockContent>
+          <S.ContentTitle className="playlist-title">
+            <S.PlayListTitleCol1>Трек</S.PlayListTitleCol1>
+            <S.PlayListTitleCol2>ИСПОЛНИТЕЛЬ</S.PlayListTitleCol2>
+            <S.PlayListTitleCol3>АЛЬБОМ</S.PlayListTitleCol3>
+            <S.PlayListTitleCol4>
+              <S.PlayListTitleSvg alt="time">
                 <use xlinkHref="img/icon/sprite.svg#icon-watch" />
-              </svg>
-            </div>
-            </div>
+              </S.PlayListTitleSvg>
+            </S.PlayListTitleCol4>
+          </S.ContentTitle>
             <PlayList />
-            </div>
-          </div>
+        </S.CenterblockContent>
+      </S.MainCenterBlock>
           
     )
 }

@@ -1,25 +1,30 @@
-import './App.css';
+// import './App.style.js';
 import NavMenu from './components/NavMenu/NavMenu'
 import Centerblock from './components/Centerblock/Centerblock';
 import Sidebar from './components/Sidebar/Sidebar';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
+import { GlobalStyle } from './components/Global.styles/Global.styles.js';
+import * as S from './App.style.js'
 
 
 
 
 function App() {
   return (
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
+    <>
+    <GlobalStyle />
+    <S.Wrapper>
+      <S.Container>
+        <S.Main>
           <NavMenu />
           <Centerblock />
           <Sidebar />
-        </main>
+        </S.Main>
         <AudioPlayer />
         <footer className="footer" />
-      </div>
-    </div>
+      </S.Container>
+    </S.Wrapper>
+    </>
   );
 }
 
