@@ -28,15 +28,12 @@ export const PopupList = styled.ul`
         border-radius: 10px;
         background: linear-gradient(315deg, rgb(22, 123, 217), rgb(89, 20, 146));
     }
-    &:hover {
-        border: 1px solid #9A48F1;
-    }
 `
 
 export const PopupListItem = styled.li`
     transition: all 0.3s;
     &:hover {
-        color: #b672ff;
+        color: #B672FF;
         cursor: pointer;        
         text-decoration: underline;
     }

@@ -114,6 +114,11 @@ export const CenterblockSearch = styled.div`
     border: 1px solid #ffffff;
     border-radius: 60px;
     padding: 6px 20px;
+    &:hover {
+      border-color: #B672FF;
+      color: #B672FF;
+      cursor: pointer;
+  }
   `
 
 
