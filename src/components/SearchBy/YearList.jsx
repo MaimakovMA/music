@@ -1,15 +1,15 @@
-import './StaleSearchBy.css'
+import * as S from './SearchBy.Styles'
 
 function YearList () {
     return (
-        <ul className="popup-list">
-            <li className="popup-list__item">2000</li>
-            <li className="popup-list__item">1998</li>
-            <li className="popup-list__item">2010</li>
-            <li className="popup-list__item">1994</li>
-            <li className="popup-list__item">2010</li>
-            <li className="popup-list__item">2001</li>
-        </ul>
+        <S.PopupList>
+            <S.PopupListItem>2000</S.PopupListItem>
+            <S.PopupListItem>1998</S.PopupListItem>
+            <S.PopupListItem>2010</S.PopupListItem>
+            <S.PopupListItem>1994</S.PopupListItem>
+            <S.PopupListItem>2010</S.PopupListItem>
+            <S.PopupListItem>2001</S.PopupListItem>
+        </S.PopupList>
     )
 }
 

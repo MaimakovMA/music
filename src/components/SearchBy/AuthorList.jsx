@@ -1,15 +1,15 @@
-import './StaleSearchBy.css'
+import * as S from './SearchBy.Styles'
 
 function AuthorList ()  {
     return (
-        <ul className="popup-list author-list">
-            <li className="popup-list__item">Michael Jackson</li>
-            <li className="popup-list__item">Frank Sinatra</li>
-            <li className="popup-list__item">Calvin Harris</li>
-            <li className="popup-list__item">Zhu</li>
-            <li className="popup-list__item">Arctic Monkeys</li>
-            <li className="popup-list__item">Леонид Агутин</li>
-        </ul>
+        <S.PopupList>
+            <S.PopupListItem>Michael Jackson</S.PopupListItem>
+            <S.PopupListItem>Frank Sinatra</S.PopupListItem>
+            <S.PopupListItem>Calvin Harris</S.PopupListItem>
+            <S.PopupListItem>Zhu</S.PopupListItem>
+            <S.PopupListItem>Arctic Monkeys</S.PopupListItem>
+            <S.PopupListItem>Леонид Агутин</S.PopupListItem>
+        </S.PopupList>
     )
 }
 
