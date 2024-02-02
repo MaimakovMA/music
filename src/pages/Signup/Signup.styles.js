@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { Link } from 'react-router-dom'
   
   export const Wrapper = styled.div`
     width: 100%;
@@ -145,4 +146,14 @@ export const ModalLogo = styled.div`
   &:active {
     background-color: #271A58;
   }  
+`
+export const ModalButtonLink = styled(Link)`
+    text-decoration: none;
+    font-family: 'StratosSkyeng', sans-serif;
+    cursor: pointer;
+    &:visited {
+        text-decoration: none;
+        font-family: 'StratosSkyeng', sans-serif;
+        cursor: pointer;
+    }
 `

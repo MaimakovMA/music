@@ -1,10 +1,7 @@
 // import './App.style.js';
-import NavMenu from './components/NavMenu/NavMenu'
-import Centerblock from './components/Centerblock/Centerblock';
-import Sidebar from './components/Sidebar/Sidebar';
-import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 import { GlobalStyle } from './components/Global.styles/Global.styles.js';
 import * as S from './App.style.js'
+import { AppRoutes } from './routes.jsx';
 
 
 
@@ -15,13 +12,7 @@ function App() {
     <GlobalStyle />
     <S.Wrapper>
       <S.Container>
-        <S.Main>
-          <NavMenu />
-          <Centerblock />
-          <Sidebar />
-        </S.Main>
-        <AudioPlayer />
-        <footer className="footer" />
+        <AppRoutes user={localStorage.getItem('user')} />
       </S.Container>
     </S.Wrapper>
     </>
