@@ -15,7 +15,7 @@ function NavMenu () {
           localStorage.removeItem('user')
       }
 
-      navigate('/SignIn')
+      navigate('/login')
   }
 
     return (

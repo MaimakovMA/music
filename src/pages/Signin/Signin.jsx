@@ -36,7 +36,7 @@ export const SignIn = () => {
               <S.ModalButtonLink to="/">Войти</S.ModalButtonLink>
             </S.ModalBtnEnter>
             <S.ModalBtnSignUp>
-              <S.ModalButtonLink to="/Signup">Зарегистрироваться</S.ModalButtonLink>
+              <S.ModalButtonLink to="/register">Зарегистрироваться</S.ModalButtonLink>
             </S.ModalBtnSignUp>
           </S.ModalFormLogin>
         </S.ModalBlock>
@@ -46,4 +46,3 @@ export const SignIn = () => {
     )
 }
 
-export default SignIn;

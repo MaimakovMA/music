@@ -14,13 +14,13 @@ import { Protection } from "./components/Protection/Protection";
 export const AppRoutes = ({user}) => {
     return(
         <Routes>
-            <Route path="/SignIn" element={<SignIn />}></Route>
-            <Route path="/SignUp" element={<SingUp />}></Route>
-            <Route path="*" element={<NotFoundPage />}></Route>
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/register" element={<SingUp />} />
+            <Route path="*" element={<NotFoundPage />} />
             <Route element={<Protection isAllowed={Boolean(user)} />}>
-                <Route path="/favorites" element={<MyTrackPage />}></Route>
-                <Route path="/" element={<MainPage />}></Route>
-                <Route path="/category/:id" element={<PlaylistPage />}></Route>
+                <Route path="/favorites" element={<MyTrackPage />} />
+                <Route path="/" element={<MainPage />} />
+                <Route path="/category/:id" element={<PlaylistPage />} />
             </Route>
         </Routes>
     )

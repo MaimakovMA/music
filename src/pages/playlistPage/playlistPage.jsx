@@ -16,7 +16,7 @@ export const PlaylistPage = () => {
             <S.Wrapper>
                 <S.Container>
                     <S.Text>
-                        Здесь будет плейлист `{title}`
+                        Здесь будет плейлист: {title}
                     </S.Text>
                 </S.Container>
             </S.Wrapper>
