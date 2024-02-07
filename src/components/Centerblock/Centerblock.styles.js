@@ -118,7 +118,9 @@ export const CenterblockSearch = styled.div`
       border-color: #B672FF;
       color: #B672FF;
       cursor: pointer;
-  }
+    }
+    border: ${(props) => (props.$isActive ? "1px solid #ad61ff" : "1px solid #ffffff")};
+    color: ${(props) => (props.$isActive ? "#ad61ff" : "")};
   `
 
 

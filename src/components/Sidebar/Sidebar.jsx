@@ -1,7 +1,8 @@
-import Skeleton from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 import * as S from './Sidebar.styles'
 import { useEffect, useState } from 'react'
-
+import { Categories } from '../../constant';
 
 function sidebar () {
   const [isLoading, setIsLoading] = useState(true)
@@ -52,30 +53,19 @@ function sidebar () {
             </S.SidebarPersonal>
             <S.SidebarBlock>
               <S.SidebarList>
-                <S.SidebarItem>
-                  <S.SidebarLink href="http://">
+                {Categories.map((category) => {
+                  return (
+                    <S.SidebarItem key={category.id}>
+                  <S.SidebarLink id={category.id}
+                  to={`/category/${category.id}`}>
                     <S.SidebarImg
-                      src="img/playlist01.png"
-                      alt="day's playlist"
+                      src={category.img}
+                      alt={category.img}
                     />
                   </S.SidebarLink>
                 </S.SidebarItem>
-                <S.SidebarItem>
-                  <S.SidebarLink href="http://">
-                    <S.SidebarImg
-                      src="img/playlist02.png"
-                      alt="day's playlist"
-                    />
-                  </S.SidebarLink>
-                </S.SidebarItem>
-                <S.SidebarItem>
-                  <S.SidebarLink href="http://">
-                    <S.SidebarImg
-                      src="img/playlist03.png"
-                      alt="day's playlist"
-                    />
-                  </S.SidebarLink>
-                </S.SidebarItem>
+                  )
+                })}                
               </S.SidebarList>
             </S.SidebarBlock>
           </S.MainSidebar>

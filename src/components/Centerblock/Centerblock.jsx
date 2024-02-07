@@ -25,7 +25,6 @@ function centerBlock () {
             <use xlinkHref="img/icon/sprite.svg#icon-search" />
           </S.SearchSvg>
           <S.SearchText
-            className="search__text"
             type="search"
             placeholder="Поиск"
             name="search"
@@ -35,19 +34,19 @@ function centerBlock () {
         <S.CenterblockFilter>
           <S.FilterTitle>Искать по:</S.FilterTitle>
           <S.WrapperFilter>
-            <S.FilterButton onClick={() => toggleFilter("author")}>
+            <S.FilterButton $isActive={filterActive==='author'} onClick={() => toggleFilter("author")}>
               исполнителю
             </S.FilterButton>
             {filterActive==='author' && <AuthorList/>}
           </S.WrapperFilter> 
           <S.WrapperFilter>
-            <S.FilterButton onClick={() => toggleFilter("year")}>
+            <S.FilterButton $isActive={filterActive==='year'} onClick={() => toggleFilter("year")}>
               году выпуска
             </S.FilterButton>
             {filterActive==='year' && <YearList/>}
           </S.WrapperFilter>        
           <S.WrapperFilter>
-            <S.FilterButton onClick={() => toggleFilter("genre")}>
+            <S.FilterButton $isActive={filterActive==='genre'} onClick={() => toggleFilter("genre")}>
               жанру
             </S.FilterButton>
             {filterActive==='genre' && <GenreList/>}             

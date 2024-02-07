@@ -1,7 +1,7 @@
 import * as S from './Signup.styles.js'
-import { GlobalStyle } from './components/Global.styles/Global.styles.js';
+import { GlobalStyle } from '../../components/Global.styles/Global.styles.js'; 
 
-const singUp = () => {
+export const SingUp = () => {
     return (
     <>
       <GlobalStyle />
@@ -9,11 +9,11 @@ const singUp = () => {
       <S.ContainerEnter>
         <S.ModalBlock>
           <S.ModalFormLogin>
-            <a href="../">
+            <S.ModalButtonLink to="/">
               <S.ModalLogo>
                 <img src="../img/logo_modal.png" alt="logo" />
               </S.ModalLogo>
-            </a>
+            </S.ModalButtonLink>
             <S.ModalInput
               type="text"
               name="login"
@@ -24,12 +24,14 @@ const singUp = () => {
               name="password"
               placeholder="Пароль"
             />
+            <S.ModalInput
+                type="password"
+                name="password"
+                placeholder="Повторите пароль"
+            />
             <S.ModalBtnEnter>
-              <a href="../index.html">Войти</a>
+              <S.ModalButtonLink to="/">Зарегистрироваться</S.ModalButtonLink>
             </S.ModalBtnEnter>
-            <S.ModalBtnSignUp>
-              <a href="signup.html">Зарегистрироваться</a>
-            </S.ModalBtnSignUp>
           </S.ModalFormLogin>
         </S.ModalBlock>
       </S.ContainerEnter>
@@ -38,4 +40,3 @@ const singUp = () => {
     )
 }
 
-export default singUp;
