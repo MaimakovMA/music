@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import * as S from './audioPlayer.style.js'
 
 
 
-function AudioPlayer ()  {
-  const [isLoading, setIsLoading] = useState(true)
-    useEffect(() => {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 3000)
-    }, [])
+function AudioPlayer ({ isPlayerVisible, isLoading })  {
+  // const [isLoading, setIsLoading] = useState(true)
+  //   useEffect(() => {
+  //     setTimeout(() => {
+  //       setIsLoading(false)
+  //     }, 3000)
+  //   }, [])
 
     return (
+      isPlayerVisible && (
         <S.Bar>
           <S.BarContent>
             <S.BarPlayerPprogress></S.BarPlayerPprogress>
@@ -120,7 +121,7 @@ function AudioPlayer ()  {
             </S.BarPlayerBlock>
           </S.BarContent>
         </S.Bar>
-    );
+    ));
 }
 
 export default AudioPlayer;

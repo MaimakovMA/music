@@ -141,3 +141,13 @@ export const ContentPlaylist = styled.div`
     text-align: right;
     color: #696969;
   `
+
+  export const LoadingTracksError = styled.p`
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 64px;
+    text-align: center;
+    color: red;
+    padding: 20px;
+`

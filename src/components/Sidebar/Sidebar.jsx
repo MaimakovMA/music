@@ -1,17 +1,17 @@
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import * as S from './Sidebar.styles'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import { Categories } from '../../constant';
 
-function sidebar () {
-  const [isLoading, setIsLoading] = useState(true)
+function sidebar ({isLoading}) {
+  // const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 3000)
-    }, [])
+  //   useEffect(() => {
+  //     setTimeout(() => {
+  //       setIsLoading(false)
+  //     }, 3000)
+  //   }, [])
 
     if(isLoading) {
       
