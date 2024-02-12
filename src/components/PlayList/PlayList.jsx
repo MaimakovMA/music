@@ -7,7 +7,7 @@ import * as S from './PlayList.styles.js'
 
 
 
-function PlayList ({ tracks, isLoading, setIsPlayerVisible, loadingTracksError, setActiveTrack }) {
+function PlayList ({ tracks=[], isLoading, setIsPlayerVisible, loadingTracksError, setActiveTrack }) {
   // const [isLoading, setIsLoading] = useState(true)
   //   useEffect(() => {
   //     setTimeout(() => {
