@@ -7,7 +7,7 @@ import * as S from './Centerblock.styles'
 
 
 
-function centerBlock () {
+function centerBlock ({ tracks, isLoading, loadingTracksError }) {
   const [filterActive, setFilterActive] = useState(null)
   const toggleFilter = (nameFilter) => {
     if (filterActive===nameFilter) {
@@ -63,7 +63,11 @@ function centerBlock () {
               </S.PlayListTitleSvg>
             </S.PlayListTitleCol4>
           </S.ContentTitle>
-            <PlayList />
+            <PlayList 
+            tracks={tracks}
+            isLoading={isLoading}
+            loadingTracksError={loadingTracksError}
+            />
         </S.CenterblockContent>
       </S.MainCenterBlock>
           

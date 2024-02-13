@@ -24,8 +24,8 @@ function App() {
     { id: 10, name: 10, author: 10, album: 10  },
 ]);
 
-  const [isLoading, setIsLoading] = useState(true)
-  const [isPlayerVisible, setIsPlayerVisible] = useState(false)
+  const [isLoading, setIsLoading] = useState(true);
+  const [isPlayerVisible, setIsPlayerVisible] = useState(false);
   const [loadingTracksError, setLoadingTracksError] = useState(false);
   const [activeTrack, setActiveTrack] = useState(null);
 
