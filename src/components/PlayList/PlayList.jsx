@@ -7,7 +7,7 @@ import * as S from './PlayList.styles.js'
 
 
 
-function PlayList ({ tracks, isLoading, setIsPlayerVisible, loadingTracksError, setActiveTrack }) {
+function PlayList ({ tracks, isLoading, setCurrentTrack, loadingTracksError }) {
   // const [isLoading, setIsLoading] = useState(true)
   //   useEffect(() => {
   //     setTimeout(() => {
@@ -18,7 +18,7 @@ function PlayList ({ tracks, isLoading, setIsPlayerVisible, loadingTracksError, 
     return (
       
         <S.ContentPlaylist>
-          <PlayListItem/>
+          
           {loadingTracksError && (
             <S.LoadingTracksError>
               Не удалось загрузить плейлист, попробуйте позже
@@ -27,69 +27,12 @@ function PlayList ({ tracks, isLoading, setIsPlayerVisible, loadingTracksError, 
           
         {tracks.map((track) => {
             return (              
-                <S.PlaylistItem key={track.id}
-                  onClick={( ) => {
-                    setIsPlayerVisible(true)
-                    setActiveTrack(track)
-                  }}>
-                  <S.PlaylistTrack>
-                    <S.TrackTitle>
-                      <S.TrackTitleImage>
-                        {isLoading ? (
-                          <Skeleton
-                          width={55}
-                          height={55}
-                          baseColor="#202020"
-                          highlightColor="#444"/>
-                        ): (
-                          <S.TrackTitleSvg alt="music">
-                          <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                        </S.TrackTitleSvg>
-                        )}                        
-                      </S.TrackTitleImage>
-                      {isLoading ? (
-                        <Skeleton
-                        width={270}
-                        baseColor="#202020"
-                        highlightColor="#444"/>                        
-                      ): (
-                        <S.TrackTitleText>
-                        <S.TrackTitleLink>{track.name}
-                          <S.TrackTitleSpan></S.TrackTitleSpan>
-                        </S.TrackTitleLink>
-                      </S.TrackTitleText>                        
-                      )}                      
-                    </S.TrackTitle>
-                    <S.TrackAuthor>
-                    {isLoading ? (
-                      <Skeleton
-                      width={270}
-                      baseColor="#202020"
-                      highlightColor="#444"/>
-                 ) : (
-                      <S.TrackAuthorLink href="http://">
-                        {track.author}
-                      </S.TrackAuthorLink>
-                 )}
-                    </S.TrackAuthor>
-                    <S.TrackAlbum>
-                    {isLoading ? (
-                      <Skeleton
-                      width={350}
-                      baseColor="#202020"
-                      highlightColor="#444"/>
-                  ) : (
-                      <S.TrackAlbumLink href="http://">{track.album}</S.TrackAlbumLink>
-                  )}
-                    </S.TrackAlbum>
-                    <S.TrackTime>
-                      <S.TrackTimeSvg alt="time">
-                        <use xlinkHref="img/icon/sprite.svg#icon-like" />
-                      </S.TrackTimeSvg>
-                      <S.TrackTimeText>2:22</S.TrackTimeText>
-                    </S.TrackTime>
-                  </S.PlaylistTrack>
-                </S.PlaylistItem>
+              <PlayListItem 
+              track={track}
+              isLoading={isLoading}
+              setCurrentTrack={setCurrentTrack}
+              key={track.id}
+              />
             )
 
           })} 

@@ -64,7 +64,7 @@ export const PlaylistItem = styled.div`
   export const TrackTitleText = styled.div`
   `
 
-  export const TrackTitleLink = styled.a`
+  export const TrackTitleLink = styled.span`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -91,7 +91,7 @@ export const PlaylistItem = styled.div`
     justify-content: flex-start;
   `
 
-  export const TrackAuthorLink = styled.a`
+  export const TrackAuthorLink = styled.span`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -104,7 +104,7 @@ export const PlaylistItem = styled.div`
     width: 245px;
   `
 
-  export const TrackAlbumLink = styled.a`
+  export const TrackAlbumLink = styled.span`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

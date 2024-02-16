@@ -24,22 +24,9 @@ function App() {
     { id: 10, name: 10, author: 10, album: 10  },
 ]);
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [isPlayerVisible, setIsPlayerVisible] = useState(false);
-  const [loadingTracksError, setLoadingTracksError] = useState(false);
-  const [activeTrack, setActiveTrack] = useState(null);
+  
 
-  useEffect (() => {
-    getAllTracks()
-      .then((response) => {
-        setTracks(response)
-      })
-      .catch((error) => {
-        setLoadingTracksError(error.message)
-      })
-      .finally(() => setIsLoading(false))
-  },[]);
-
+  
 
   return (
     <>
@@ -48,16 +35,10 @@ function App() {
       <S.Container>
         <AppRoutes 
           user={localStorage.getItem('user')}
-          tracks={tracks}
-          setTracks={setTracks}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          isPlayerVisible={isPlayerVisible}
-          setIsPlayerVisible={setIsPlayerVisible}
-          loadingTracksError={loadingTracksError}
-          setActiveTrack={setActiveTrack}
+          
+          
         />
-        {AudioPlayer({ isPlayerVisible, isLoading, activeTrack,})}
+        
       </S.Container>
     </S.Wrapper>
     </>

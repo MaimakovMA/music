@@ -7,7 +7,7 @@ import * as S from './Centerblock.styles'
 
 
 
-function centerBlock ({ tracks, isLoading, loadingTracksError }) {
+function centerBlock ({ tracks, isLoading, loadingTracksError, setCurrentTrack }) {
   const [filterActive, setFilterActive] = useState(null)
   const toggleFilter = (nameFilter) => {
     if (filterActive===nameFilter) {
@@ -67,6 +67,7 @@ function centerBlock ({ tracks, isLoading, loadingTracksError }) {
             tracks={tracks}
             isLoading={isLoading}
             loadingTracksError={loadingTracksError}
+            setCurrentTrack={setCurrentTrack}
             />
         </S.CenterblockContent>
       </S.MainCenterBlock>

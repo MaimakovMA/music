@@ -5,16 +5,16 @@ import * as S from './audioPlayer.style.js'
 
 
 
-function AudioPlayer ({ isPlayerVisible, isLoading })  {
+function AudioPlayer ({ currentTrack })  {
   // const [isLoading, setIsLoading] = useState(true)
   //   useEffect(() => {
   //     setTimeout(() => {
   //       setIsLoading(false)
   //     }, 3000)
   //   }, [])
-
+console.log(currentTrack)
     return (
-      isPlayerVisible && (
+      currentTrack && (
         <S.Bar>
           <S.BarContent>
             <S.BarPlayerPprogress></S.BarPlayerPprogress>
@@ -51,41 +51,22 @@ function AudioPlayer ({ isPlayerVisible, isLoading })  {
                 <S.PlayerTrackPlay>
                   <S.TrackPlayContain>
                     <S.TrackPlayImage>
-                      {isLoading ? (
-                              <Skeleton
-                                width={55}
-                                height={55}
-                                baseColor="#202020"
-                                highlightColor="#444"
-                              />
-                      ) : (
+                      
                         <S.TrackPlaySvg alt="music">
                         <use xlinkHref="img/icon/sprite.svg#icon-note" />
                       </S.TrackPlaySvg>
-                      )}                      
+                                            
                     </S.TrackPlayImage>
                     <S.TrackPlayAuthor>
-                      {isLoading ? (
-                              <Skeleton
-                                width={90}
-                                baseColor="#202020"
-                                highlightColor="#444"
-                              />
-                      ) : (
+                      
                         <S.TrackPlayAuthorLink href="http://"
-                        >Ты та...</S.TrackPlayAuthorLink>
-                      )}                      
+                        >{currentTrack.name}</S.TrackPlayAuthorLink>
+                      
                     </S.TrackPlayAuthor>
                     <S.TrackPlayAlbum>
-                      {isLoading ? (
-                                <Skeleton
-                                   width={90}
-                                   baseColor="#202020"
-                                   highlightColor="#444"
-                                />
-                      ) : (
-                        <S.TrackPlayAlbumLink href="http://">Баста</S.TrackPlayAlbumLink>
-                      )}                      
+                      
+                        <S.TrackPlayAlbumLink href="http://">{currentTrack.author}</S.TrackPlayAlbumLink>
+                                           
                     </S.TrackPlayAlbum>
                   </S.TrackPlayContain>
 
