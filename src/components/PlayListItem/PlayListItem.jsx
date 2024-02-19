@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import  Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import * as S from './PlayListItem.styles.js'
+import { ConvertTime } from '../../helpers.js';
 
 
 
-function PlayListItem ({ track, isLoading,setCurrentTrack }) {
+function PlayListItem ({ track, isLoading, setCurrentTrack }) {
   
 
     return (
@@ -63,7 +64,7 @@ function PlayListItem ({ track, isLoading,setCurrentTrack }) {
             <S.TrackTimeSvg alt="time">
               <use xlinkHref="img/icon/sprite.svg#icon-like" />
             </S.TrackTimeSvg>
-            <S.TrackTimeText>{track.duration_in_seconds}</S.TrackTimeText>
+            <S.TrackTimeText>{ConvertTime(track.duration_in_seconds) }</S.TrackTimeText>
           </S.TrackTime>
         </S.PlaylistTrack>
       </S.PlaylistItem>

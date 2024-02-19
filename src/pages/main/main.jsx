@@ -25,6 +25,7 @@ export const MainPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingTracksError, setLoadingTracksError] = useState(false);
   const [currentTrack, setCurrentTrack ] = useState(null)
+  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect (() => {
     getAllTracks()
@@ -36,6 +37,24 @@ export const MainPage = () => {
       })
       .finally(() => setIsLoading(false))
   },[]);
+
+  const handlePlay = () => {
+    audioRef.current.play();
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    audioRef.current.pause();
+    setIsPlaying(false);
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      handlePlay()
+    }
+  },[currentTrack]);
+
+  const togglePlay = isPlaying ? handlePause : handlePlay;
 
     return(
         <>
@@ -49,10 +68,15 @@ export const MainPage = () => {
               isLoading={isLoading}
               loadingTracksError={loadingTracksError}
               setCurrentTrack={setCurrentTrack}
+              
               />
               <Sidebar />
             </S.Main>
-            <AudioPlayer currentTrack={currentTrack} />
+            <AudioPlayer 
+            currentTrack={currentTrack}
+            isPlaying={isPlaying}
+            togglePlay={togglePlay}
+             />
             <footer className="footer" />
           </S.Container>
         </S.Wrapper>
