@@ -1,20 +1,18 @@
-// import { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import * as S from './audioPlayer.style.js'
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { ConvertTime } from '../../helpers.js';
 
 
 
-function AudioPlayer ({ currentTrack, isPlaying, togglePlay })  {
+function AudioPlayer ({ currentTrack, isPlaying, togglePlay, audioRef })  {
 
   
   const [isLooped, setIsLooped] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [currentVolume, setCurrentVolume] = useState(0.1)
 
-  const audioRef = useRef(null)
+  
   const progressBarRef = useRef(null)
   const volumeBarRef = useRef(null)
   const duration = audioRef.current ? audioRef.current.duration : 0
