@@ -5,21 +5,30 @@ import { ConvertTime } from '../../helpers.js';
 
 
 
-function AudioPlayer ({ currentTrack, isPlaying, togglePlay, audioRef })  {
+function AudioPlayer ({ currentTrack })  {
 
   
   const [isLooped, setIsLooped] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [currentVolume, setCurrentVolume] = useState(0.1)
+  const [isPlaying, setIsPlaying] = useState(true);
 
   
   const progressBarRef = useRef(null)
   const volumeBarRef = useRef(null)
   const duration = audioRef.current ? audioRef.current.duration : 0
 
+  const audioRef = useRef(null)
 
+  const handlePlay = () => {
+    audioRef.current.play();
+    setIsPlaying(true);
+  };
 
- 
+  const handlePause = () => {
+    audioRef.current.pause();
+    setIsPlaying(false);
+  }; 
 
   const handleLoop = () => {
     audioRef.current.loop = true
@@ -31,12 +40,23 @@ function AudioPlayer ({ currentTrack, isPlaying, togglePlay, audioRef })  {
     setIsLooped(false)
 }
 
-
-  
+  const togglePlay = isPlaying ? handlePause : handlePlay;  
   const toggleLoop = isLooped ? handleUnloop : handleLoop;
 
   
+  useEffect(() => {
+    if (audioRef.current) {
+      handlePlay()
+    }
+  },[currentTrack]);
 
+  // useEffect(() => {
+  //   if (currentTrack) {
+  //     handlePlay();
+  //   } else {
+  //     handlePause()
+  //   }
+  // },[currentTrack]);
 
   
 
@@ -47,9 +67,7 @@ function AudioPlayer ({ currentTrack, isPlaying, togglePlay, audioRef })  {
 
   
 console.log(currentTrack)
-    return (
-      
-      currentTrack && (
+    return (      
         <> 
         <audio
             controls="controls"
@@ -211,7 +229,7 @@ console.log(currentTrack)
           </S.BarContent>
         </S.Bar>
         </>
-    ));
+    );
 }
 
 export default AudioPlayer;

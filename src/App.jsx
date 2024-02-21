@@ -32,8 +32,7 @@ function App() {
     <S.Wrapper>
       <S.Container>
         <AppRoutes 
-          user={localStorage.getItem('user')}/>
-        
+          user={localStorage.getItem('user')}/>        
       </S.Container>
     </S.Wrapper>
     </>

@@ -4,7 +4,7 @@ import Sidebar from '../../components/Sidebar/Sidebar.jsx';
 import AudioPlayer from '../../components/AudioPlayer/AudioPlayer.jsx';
 import { GlobalStyle } from '../../components/Global.styles/Global.styles.js';
 import * as S from './main.styles.js'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllTracks } from '../../Api.jsx';
 
 
@@ -25,9 +25,7 @@ export const MainPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingTracksError, setLoadingTracksError] = useState(false);
   const [currentTrack, setCurrentTrack ] = useState(null)
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const audioRef = useRef(null)
+  
 
   useEffect (() => {
     getAllTracks()
@@ -40,24 +38,7 @@ export const MainPage = () => {
       .finally(() => setIsLoading(false))
   },[]);
 
-  const handlePlay = () => {
-    audioRef.current.play();
-    setIsPlaying(true);
-  };
-
-  const handlePause = () => {
-    audioRef.current.pause();
-    setIsPlaying(false);
-  };
-
-  useEffect(() => {
-    if (audioRef.current) {
-      handlePlay()
-    }
-  },[currentTrack]);
-
-  const togglePlay = isPlaying ? handlePause : handlePlay;
-
+  
     return(
         <>
         <GlobalStyle />
@@ -74,11 +55,11 @@ export const MainPage = () => {
               />
               <Sidebar />
             </S.Main>
+            {currentTrack && (
             <AudioPlayer 
-            currentTrack={currentTrack}
-            
-            togglePlay={togglePlay}
+            currentTrack={currentTrack}           
              />
+            )}
             <footer className="footer" />
           </S.Container>
         </S.Wrapper>
