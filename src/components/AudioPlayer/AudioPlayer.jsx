@@ -1,6 +1,6 @@
 import 'react-loading-skeleton/dist/skeleton.css';
 import * as S from './audioPlayer.style.js'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ConvertTime } from '../../helpers.js';
 
 
@@ -16,10 +16,26 @@ function AudioPlayer ({ currentTrack })  {
   
   const progressBarRef = useRef(null)
   const volumeBarRef = useRef(null)
-  const duration = audioRef.current ? audioRef.current.duration : 0
 
   const audioRef = useRef(null)
 
+  useEffect(() => {
+    if (audioRef.current) {
+      handlePlay()
+    }
+  },[currentTrack]);
+
+  // useEffect(() => {
+  //   if (currentTrack) {
+  //     handlePlay();
+  //   } else {
+  //     handlePause()
+  //   }
+  // },[currentTrack]);
+
+  const duration = audioRef.current ? audioRef.current.duration : 0
+
+  
   const handlePlay = () => {
     audioRef.current.play();
     setIsPlaying(true);
@@ -44,19 +60,7 @@ function AudioPlayer ({ currentTrack })  {
   const toggleLoop = isLooped ? handleUnloop : handleLoop;
 
   
-  useEffect(() => {
-    if (audioRef.current) {
-      handlePlay()
-    }
-  },[currentTrack]);
-
-  // useEffect(() => {
-  //   if (currentTrack) {
-  //     handlePlay();
-  //   } else {
-  //     handlePause()
-  //   }
-  // },[currentTrack]);
+  
 
   
 
@@ -66,7 +70,7 @@ function AudioPlayer ({ currentTrack })  {
 
 
   
-console.log(currentTrack)
+// console.log(currentTrack)
     return (      
         <> 
         <audio
@@ -83,7 +87,7 @@ console.log(currentTrack)
         </S.TrackTime>
         <S.Bar>
           <S.BarContent>
-            <S.BarPlayerPprogress
+            <S.BarPlayerProgress
               ref={progressBarRef}
               type="range"
               min={0}
@@ -94,7 +98,7 @@ console.log(currentTrack)
               }}
               $color="#ff0000"
             >
-            </S.BarPlayerPprogress>
+            </S.BarPlayerProgress>
             <S.BarPlayerBlock>
               <S.BarPlayer>
                 <S.PlayerControls>
