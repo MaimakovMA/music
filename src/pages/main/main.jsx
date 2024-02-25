@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { getAllTracks } from '../../Api.jsx';
 
 
+
 export const MainPage = () => {
 
   const [tracks, setTracks] = useState([
@@ -26,6 +27,8 @@ export const MainPage = () => {
   const [loadingTracksError, setLoadingTracksError] = useState(false);
   const [currentTrack, setCurrentTrack ] = useState(null)
   
+  
+  
 
   useEffect (() => {
     getAllTracks()
@@ -41,7 +44,7 @@ export const MainPage = () => {
   
     return(
         <>
-        <GlobalStyle />
+        <GlobalStyle />        
         <S.Wrapper>
           <S.Container>
             <S.Main>
@@ -62,7 +65,7 @@ export const MainPage = () => {
             )}
             <footer className="footer" />
           </S.Container>
-        </S.Wrapper>
+        </S.Wrapper>        
         </>
     )
 }

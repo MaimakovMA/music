@@ -157,3 +157,11 @@ export const ModalButtonLink = styled(Link)`
         cursor: pointer;
     }
 `
+
+export const ErrorMessage = styled.div`
+    color: red;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+`

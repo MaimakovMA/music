@@ -3,16 +3,20 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import * as S from './Sidebar.styles'
 // import { useEffect, useState } from 'react'
 import { Categories } from '../../constant';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../Authorization';
 
 function sidebar ({isLoading}) {
-  // const [isLoading, setIsLoading] = useState(true)
 
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       setIsLoading(false)
-  //     }, 3000)
-  //   }, [])
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
 
+  const [userData] = useContext(UserContext)
+ 
     if(isLoading) {
       
       return (
@@ -44,8 +48,8 @@ function sidebar ({isLoading}) {
     return (
         <S.MainSidebar>
             <S.SidebarPersonal>
-              <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
-              <S.SidebarIcon>
+              <S.SidebarPersonalName>{userData}</S.SidebarPersonalName>
+              <S.SidebarIcon onClick={handleLogout}>
                 <svg alt="logout">
                   <use xlinkHref="img/icon/sprite.svg#logout"> </use>
                 </svg>
